@@ -44,16 +44,21 @@ After cleaning the text three preprocessing steps were considered for model sele
 
 I chose to work with scikit learn and keras deep learning models for training my classifiers.Three different proprocessing methods (BOW, TF-IDF, and Word2Vec) were tested on with logistic regression, and with keras Tokenizer with a Sequential model utilizing the 'relu' activation with one or two layers.
 
-**BOW vs TF-IDF**
+##### BOW vs TF-IDF
+
 ![BOW vs TF-IDF caption="BOW vs TF-IDF"](images/bow_vs_ifidf.PNG "BOW vs TF-IDF")
 
-**Selectig the best Model**
-![Model Selection caption="Selectig the best Model"](images/model_selection.PNG "Selectig the best Model")
+##### Selecting the best Model
 
-**Modeling after Class Adjustment**
+![Model Selection caption="Selectig the best Model"](images/model_selection.PNG "Selecting the best Model")
+
+##### Modeling after Class Adjustment
+
 ![After class adjustment caption="Modeling after Class Balancing"](images/class_imbalance_adjustment.PNG "Modeling after Class Adjustment")
 
-**Confusion Matrix of Best Model**
+
+#### Confusion Matrix of Best Model
+
 ![Confusion Matrix caption="Confusion Matrix of Best Model"](images/confusion_matrix_best_model.png "Confusion Matrix of Best Model")
 
 

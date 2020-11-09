@@ -8,12 +8,6 @@ Can we build a model to classify the are of medicine to which a medical note bel
 
 Doctors dictate medical notes following a visit with a patient and these notes are then attached to the patient's chart. Private practices are already specialized but patients who are hospitalized can be visited by doctors of many specialties. The idea behind this project is to get a feel for medical and see if current NLP methods are capable of distinguishing classes that often have overlap between them.
 
-## Criteria for Success
-
-High accuracy and precision metric for classification.
-
-## Contraints
-
 Medical texts are difficult to procure due to HIPAA privacy regulations, therefore it is a relatively new field in NLP. The medical lexicon is vastly different then everyday speech where most of the research for NLP has been. To make things more complicated several specialties have a lot in common in addition to all specialties sharing a core list of terms that could otherwise distinguish it from none medical text. If we were to visualize the clusters the data would overlap quite a bit.
 
 ## Data Sources
@@ -50,10 +44,16 @@ After cleaning the text three preprocessing steps were considered for model sele
 
 I chose to work with scikit learn and keras deep learning models for training my classifiers.Three different proprocessing methods (BOW, TF-IDF, and Word2Vec) were tested on with logistic regression, and with keras Tokenizer with a Sequential model utilizing the 'relu' activation with one or two layers.
 
+**BOW vs TF-IDF**
 ![BOW vs TF-IDF caption="BOW vs TF-IDF"](images/bow_vs_ifidf.PNG "BOW vs TF-IDF")
+
+**Selectig the best Model**
 ![Model Selection caption="Selectig the best Model"](images/model_selection.PNG "Selectig the best Model")
+
+**Modeling after Class Adjustment**
 ![After class adjustment caption="Modeling after Class Balancing"](images/class_imbalance_adjustment.PNG "Modeling after Class Adjustment")
 
+**Confusion Matrix of Best Model**
 ![Confusion Matrix caption="Confusion Matrix of Best Model"](images/confusion_matrix_best_model.png "Confusion Matrix of Best Model")
 
 

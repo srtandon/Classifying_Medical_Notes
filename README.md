@@ -26,7 +26,7 @@ There are multiple tokenizers that can be used to explore and preprocess the dat
 The RegexTokenizer came up with 2420937 words total, with a vocabulary size of 28581, and max sentence length of 3114.
 The ToktokTokenizer came up with 1957566 words total, with a vocabulary size of 23069, and max sentence length of 2347 and completed much faster.
 
-![Text length](images/histogram_of_text_length.png)
+![Text length](images/histogram_of_text_lengths.png)
 
 Cleaning this type of text is difficult because of measurment terms and the numbers that proceed them. In addition to numerical followed by measurements some of the text contained ordered lists with multiple sentences. After inspecting the words with a simple bag of words model showed that all the documents still shared words such as 'patient' or 'history' and thus most words that would be unique to the differenct classes would likely have small frequencies and we would have to be careful not to drop them.
 
@@ -50,9 +50,11 @@ After cleaning the text three preprocessing steps were considered for model sele
 
 I chose to work with scikit learn and keras deep learning models for training my classifiers.Three different proprocessing methods (BOW, TF-IDF, and Word2Vec) were tested on with logistic regression, and with keras Tokenizer with a Sequential model utilizing the 'relu' activation with one or two layers.
 
-![BOW vs TF-IDF](images/bow_vs_tfidf.png)
-![Model Selection](images/model_slection.png)
-![After class adjustment](images/class_imbalance_adjustment.png)
+![BOW vs TF-IDF](images/bow_vs_ifidf.PNG)
+![Model Selection](images/model_selection.PNG)
+![After class adjustment](images/class_imbalance_adjustment.PNG)
+
+![Confusion Matrix](images/confusion_matrix_best_model.png)
 
 
 ## Future Improvments

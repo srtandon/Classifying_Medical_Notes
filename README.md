@@ -42,7 +42,7 @@ After cleaning the text three preprocessing steps were considered for model sele
 
 ## Algorithms and Machine Learning
 
-I chose to work with scikit learn and keras deep learning models for training my classifiers.Three different proprocessing methods (BOW, TF-IDF, and Word2Vec) were tested on with logistic regression, and with keras Tokenizer with a Sequential model utilizing the 'relu' activation with one or two layers.
+I chose to work with scikit learn and keras deep learning models for training my classifiers. Three different proprocessing methods (BOW, TF-IDF, and Word2Vec) were tested with logistic regression, and with keras Tokenizer with a Sequential model utilizing the 'relu' activation with one or two layers.
 
 ##### BOW vs TF-IDF
 

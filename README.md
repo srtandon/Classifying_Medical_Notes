@@ -16,13 +16,24 @@ This dataset was made availble on kaggle.com
 https://www.kaggle.com/tboyle10/medicaltranscriptions
 
 ## Data Exploration
+
+[EDA Notebook](https://github.com/srtandon/Classifying_Medical_Notes/blob/main/Medical%20Texts%20-%20EDA.ipynb)
+
 There are multiple tokenizers that can be used to explore and preprocess the data after cleaning the text (explained in the next section). The RegexTokenizer and ToktokTokenizer from the nltk library were used to visualize text lengths and to see which way is better for out prediction model.
 The RegexTokenizer came up with 2420937 words total, with a vocabulary size of 28581, and max sentence length of 3114.
 The ToktokTokenizer came up with 1957566 words total, with a vocabulary size of 23069, and max sentence length of 2347 and completed much faster.
 
+##### Histogram of text lengths
+
 ![Text length](images/histogram_of_text_lengths.png)
 
-Cleaning this type of text is difficult because of measurment terms and the numbers that proceed them. In addition to numerical followed by measurements some of the text contained ordered lists with multiple sentences. After inspecting the words with a simple bag of words model showed that all the documents still shared words such as 'patient' or 'history' and thus most words that would be unique to the differenct classes would likely have small frequencies and we would have to be careful not to drop them.
+##### Word Frequency
+![Word Frequency](images/word_freq.png)
+
+##### Bigram Frequency
+![Brigrams](images/bigram_hist.png)
+
+Cleaning this type of text is difficult because of measurment terms and the numbers that proceed them. In addition to numerical followed by measurements some of the text contained ordered lists with multiple sentences. After inspecting the words with a simple bag of words model showed that all the documents still shared words such as 'patient' or 'history' and thus most words that would be unique to the differenct classes would likely have small frequencies and we would have to be careful not to drop them. Ignoring the most frequent bigram containing "\_" the most frequent combination of words is 'year old' which makes sense given the age plays a huge role in which specialties the patient is visiting or gets visited by. The next two most frequent bigrams are terminology related to surgery which is the specialty with the most samples, we can see that naturally the highest frequency are associated with the area of medicine with the most samples in the dataset. 
 
 ## Preprocessing methods
 
@@ -39,8 +50,11 @@ After cleaning the text three preprocessing steps were considered for model sele
     <li>TF-IDF</li>
     <li>Word2Vec</li>
 </ul>
+[EDA Notebook](https://github.com/srtandon/Classifying_Medical_Notes/blob/main/Medical%20Texts%20-%20EDA.ipynb)
 
 ## Algorithms and Machine Learning
+
+[LogReg Modeling examples](https://github.com/srtandon/Classifying_Medical_Notes/blob/main/Medical%20Texts%20-%20Modeling.ipynb)
 
 I chose to work with scikit learn and keras deep learning models for training my classifiers. Three different proprocessing methods (BOW, TF-IDF, and Word2Vec) were tested with logistic regression, and with keras Tokenizer with a Sequential model utilizing the 'relu' activation with one or two layers.
 
@@ -53,7 +67,7 @@ I chose to work with scikit learn and keras deep learning models for training my
 ![Model Selection caption="Selectig the best Model"](images/model_selection.PNG "Selecting the best Model")
 
 ##### Confusion Matrix of Best Model
-
+The true label is on the vertical axis and the predicted label is on the horizontal axis.
 ![Confusion Matrix caption="Confusion Matrix of Best Model"](images/confusion_matrix_best_model_no_class_adj.png "Confusion Matrix of Best Model")
 
 #### Modeling after Class Adjustment
@@ -66,7 +80,7 @@ I chose to work with scikit learn and keras deep learning models for training my
 ![SMOTE results caption="Modeling with SMOTE"](images/oversample_results.PNG "Modeling with SMOTE")
 
 ##### Confusion Matrix of Best Model after Class Adjustment
-
+The true label is on the vertical axis and the predicted label is on the horizontal axis.
 ![Confusion Matrix caption="Confusion Matrix of Best Model"](images/confusion_matrix_best_model_class_adj.png "Confusion Matrix of Best Model")
 
 ##### Confusion Matrix of Best Model without Class Adjustments
@@ -74,6 +88,8 @@ I chose to work with scikit learn and keras deep learning models for training my
 ![Confusion Matrix caption="Confusion Matrix of Best Model"](images/confusion_matrix_best_model_no_class_adj_oversampling.png "Confusion Matrix of Best Model")
 
 ## Conclusion
+[Deep Learning Models](https://github.com/srtandon/Classifying_Medical_Notes/blob/main/Medical%20Texts%20-%20DeepLearningModels.ipynb)
+
 In experimenting with deep learning models the best accuracy achieved was 36% which was no better than the Logistic Regression before optimization. After a few hours messing around with simple RNN and LSTM models, logistic regression was selected as the best model. An accuracy of 50% was achieved with SMOTE oversampleing and model optimization, a remarked improvment over the initial accuracy shown in the BOW vs TF-IDF table. Having used logistic regression with PCA before a choice was made to use a dimensional reducer to see if the accuracy improved, the experiment proved succesful and was this chosen as a preprocessing method for the model pipeline. Once the final model was trained and assesed with a test set a new, never-before-seen sample was tested on the model which failed to correctly predict the class.
 
 ##### Results of sample text

@@ -50,7 +50,8 @@ After cleaning the text three preprocessing steps were considered for model sele
     <li>TF-IDF</li>
     <li>Word2Vec</li>
 </ul>
-[EDA Notebook](https://github.com/srtandon/Classifying_Medical_Notes/blob/main/Medical%20Texts%20-%20EDA.ipynb)
+
+[Preprocessing Notebook](https://github.com/srtandon/Classifying_Medical_Notes/blob/main/Medical%20Texts%20-%20EDA.ipynb)
 
 ## Algorithms and Machine Learning
 
@@ -96,4 +97,5 @@ In experimenting with deep learning models the best accuracy achieved was 36% wh
 ![Results of sample text](images/sample_text_prediction.PNG)
 
 ## Future Improvments
-From the experiments it is evident that the preprocessing method has the most impact on the model performance. As research in natural language processing move forward and application in medicine become more prevlant perhaps there will be better trained models and preprocessing methods. One such method is to apply the BioSent2Vec which containes medical text associations. As you can see from the image of the best model the SMOTE method dropped two of the classes during sampling, a framework like SMOTE is not transparent so it is not clear why the classes disappeared. Future experimentation could involve manually using the class_weight parameter which accepts dictionaries or assigned weights for each class.
+From the experiments it is evident that the preprocessing method has the most impact on the model performance. As research in natural language processing move forward and application in medicine become more prevlant perhaps there will be better trained models and preprocessing methods. Methods such as BioSent2Vec which containes medical text associations, or SentenceTransformers in pytorch could help improve the accuracy but given the overlap between medical specialties it will be difficult.
+As you can see from the image of the best model the SMOTE method dropped two of the classes during sampling, a framework like SMOTE is not transparent so it is not clear why the classes disappeared. Future experimentation could involve manually using the class_weight parameter which accepts dictionaries or assigned weights for each class. 
